@@ -4,4 +4,7 @@ class TodosController < ApplicationController
     @todos = Todo.all
   end
 
+  def show 
+  end
+
 end
