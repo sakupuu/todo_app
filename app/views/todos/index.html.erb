@@ -1,1 +1,4 @@
 <h1> Index Page! </h1>
+<% @todos.each do |todo| %>
+  <li><%=todo.title%></li>
+<% end %>
