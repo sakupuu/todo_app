@@ -12,5 +12,7 @@ class TodosController < ApplicationController
     @todo = Todo.new
   end
 
-  
+  def create
+    @todo = Todo.create todo_params
+  end
 end
