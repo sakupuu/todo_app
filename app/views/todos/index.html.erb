@@ -1,6 +1,8 @@
 <h1> Todo List! </h1>
 
-<%= link_to "New Todo Item", new_todo_path %>
+<p>There're  <%= @todos.count %> todos</p>
+
+<%= link_to "New", new_todo_path %>
 
 <% @todos.each do |todo| %>
   <li> 
