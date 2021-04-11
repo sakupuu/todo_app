@@ -1,13 +1,30 @@
 <h1> Todo List! </h1>
 
-<p>There're  <%= @todos.count %> todos</p>
+<p>There are  <%= @todos.count %> todos</p>
 
 <%= link_to "New", new_todo_path %>
 
-<% @todos.each do |todo| %>
-  <li> 
-    <%= link_to todo.title, todo_path(todo.id) %>
-    <%= link_to "edit", edit_todo_path(todo[:id]) %>
-    <%= link_to "delete", todo, method: :delete, data: { confirm: "You sure?" }%>
-  </li>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Todo</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+    <tr>
+      <td><%= todo.title %></td>
+      <td><%= todo.description %></td>
+      <td><%= link_to todo.title, todo_path(todo.id),class: "btn btn-primary"%></td>
+      <td><%= link_to "edit", edit_todo_path(todo[:id]),class: "btn btn-success"%></td>
+      <td><%= link_to "delete", todo, method: :delete, data: { confirm: "You sure?" },class: "btn btn-danger"%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
