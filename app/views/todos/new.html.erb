@@ -1,4 +1,17 @@
 <h1>New</h1>
+
+#エラーメッセージ表示
+<% if @todo.errors.any? %>
+  <div>
+    <ul style="color: red">
+      <% @todo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @todo do |f| %>
 
   <%= label_tag(:title, "Title:") %>
