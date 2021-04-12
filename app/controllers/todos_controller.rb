@@ -9,14 +9,17 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
   end
 
-  
+  def new
+    @todo = Todo.new
+  end
 
   def create
     @todo = Todo.new(todo_params)
     if @todo.save
       redirect_to todos_path(@todo)
     else
-      render action: :edit
+      @todos = Todo.all
+      render 'index'
     end
   end
 
