@@ -2,8 +2,6 @@
 
 <p>There are  <%= @todos.count %> todos</p>
 
-<%= link_to "New", new_todo_path %>
-
 <table>
   <thead>
     <tr>
@@ -24,6 +22,25 @@
     <% end %>
   </tbody>
 </table>
+
+<h1>New</h1>
+
+
+
+<%= form_with model: @todo do |f| %>
+  <div class="field">
+  <%= f.label :Title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :Description %><br>
+  <%= f.text_area :description %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
 
 
 
