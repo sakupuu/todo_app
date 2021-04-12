@@ -8,12 +8,8 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
   end
 
-  def new
-    @todo = Todo.new
-  end
-
   def create
-    @todo = Todo.create todo_params
+    @todo = Todo.new (todo_params)
     if @todo.save
       redirect_to todo_path(@todo)
     else
